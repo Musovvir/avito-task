@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import Images from "./Images";
+import {useDispatch, useSelector} from "react-redux";
+import {loadImages} from "./redux/actions";
+import "./App.css"
 
 function App() {
+  const loading = useSelector(state => state.loading);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(loadImages())
+  }, [dispatch]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {
+        loading ? <div className="load">Идет загрузка...</div> : (
+            <div className="container">
+              <div className="row no-gutters">
+                <Images />
+              </div>
+            </div>
+        )
+      }
     </div>
   );
 }
