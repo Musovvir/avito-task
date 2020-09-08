@@ -6,8 +6,14 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import reducer from "./redux/reducer";
 import "bootstrap/dist/css/bootstrap.min.css"
+import {createLogger} from "redux-logger";
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const logger = createLogger({
+    collapsed: true,
+    diff: true
+})
+
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <React.StrictMode>
