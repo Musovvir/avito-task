@@ -1,0 +1,36 @@
+.my-window {
+  margin: auto;
+  position: relative;
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  z-index: 9;
+}
+
+.modal-win {
+  width: 800px;
+  height: 600px;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9;
+  background-color: white;
+  border: 3px solid #8537ff;
+}
+
+.image-modal {
+  width: 500px;
+  height: 350px;
+  margin: 30px;
+  background-size: 80%;
+}
+
+.comment {
+  margin: 30px 0;
+}
