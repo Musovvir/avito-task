@@ -33,4 +33,3 @@ export function closeModal() {
     dispatch({ type: "close" });
   };
 }
-
